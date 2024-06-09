@@ -28,15 +28,14 @@ class Project05 {
   choiceButton(label) {
     return label === 'Previous' ? this.getPreviusButon() : this.getNextButon()
   }
+  PageHeadElVisible(title) {
+    return this.getPage().contains(title)
+  }
 
   /* Methods */
 
-  validatePageHeadElVisible(title) {
-    this.getPage().contains(title).should('be.visible')
-  }
-
-  validatePHeading() {
-    this.getPHeading().should('be.visible')
+  clickButton(label) {
+    this.choiceButton(label).click()
   }
 
   clickButtonTillitDisabled(label) {
@@ -50,19 +49,5 @@ class Project05 {
       clickUntilDisabled()
     })
   }
-
-  verifyCityInfo(dataTable) {
-    const arr = dataTable.rawTable.flat()
-
-    this.getInfo().each(($el, index) => {
-      cy.log(arr[index])
-      cy.wrap($el).should('be.visible').and('contain', arr[index])
-    })
-  }
-
-  verifyCityImage(cityName) {
-    this.getImage().should('be.visible').and('have.attr', 'alt', cityName)
-  }
 }
-
 module.exports = Project05
