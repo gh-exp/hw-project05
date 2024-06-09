@@ -56,12 +56,12 @@ class Project05 {
 
     this.getInfo().each(($el, index) => {
       cy.log(arr[index])
-      cy.wrap($el).should('exist').and('contain', arr[index])
+      cy.wrap($el).should('be.visible').and('contain', arr[index])
     })
   }
 
   verifyCityImage(cityName) {
-    this.getImage().should('exist').and('have.attr', 'alt', cityName)
+    this.getImage().should('be.visible').and('have.attr', 'alt', cityName)
   }
 }
 
