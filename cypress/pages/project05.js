@@ -25,18 +25,18 @@ class Project05 {
     return cy.get('.Pagination_pagBodyData__vG6oj > p')
   }
 
+  choiceButton(label) {
+    return label === 'Previous' ? this.getPreviusButon() : this.getNextButon()
+  }
+
   /* Methods */
 
   validatePageHeadElVisible(title) {
-    return this.getPage().contains(title).should('be.visible')
+    this.getPage().contains(title).should('be.visible')
   }
 
   validatePHeading() {
     this.getPHeading().should('be.visible')
-  }
-
-  choiceButton(label) {
-    return label === 'Previous' ? this.getPreviusButon() : this.getNextButon()
   }
 
   clickButtonTillitDisabled(label) {
